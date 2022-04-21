@@ -1,5 +1,7 @@
-const fetchNEOs = () => {
-  return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=2015-09-07&end_date=2015-09-08&api_key=DEMO_KEY`).then((response) => response.json())
+import APIKey from "./APIKey"
+
+const fetchNEOs = (startDate, endDate) => {
+  return fetch(`https://api.nasa.gov/neo/rest/v1/feed?start_date=${startDate}&end_date=${endDate}&api_key=${APIKey}`)
 
 }
 
