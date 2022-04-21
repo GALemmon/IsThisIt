@@ -6,13 +6,20 @@ const Card = ({ object }) => {
   const missDistanceMiles = +object.close_approach_data[0].miss_distance.miles
   const missDistanceLunar = +object.close_approach_data[0].miss_distance.lunar
   const speed = +object.close_approach_data[0].relative_velocity.miles_per_hour
+  const formatDate = (date) => {
+    const year = date.slice(0, 4)
+    const month = date.slice(5, 7)
+    const day = date.slice(-2)
+    const formattedDate = `${month}-${day}-${year}`
+    return formattedDate
+  }
   
   return (
     <div className={`card ${object.is_potentially_hazardous_asteroid ? 'dangerous' : ''} `}>
       <h2>{object.name}</h2>
       <h3>
         This object's closest approach to Earth will occur on: <br />
-        {object.close_approach_data[0].close_approach_date}.
+        {formatDate(object.close_approach_data[0].close_approach_date)}.
       </h3>
       <h4>
         Is this a potentially hazardous object? <br /><br/>
