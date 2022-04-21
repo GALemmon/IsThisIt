@@ -3,9 +3,13 @@ import './NEOsArea.css'
 import Card from '../Card/Card.js'
 
 const NEOsArea = ({ NEOs }) => {
-  console.log('NEOs: ', Object.values(NEOs))
   let objects = Object.values(NEOs).flat()
-  console.log('objects: ', objects)
+  let sortedObjects = objects.sort(function (a, b){
+    return (
+      a.close_approach_data[0].epoch_date_close_approach -
+      b.close_approach_data[0].epoch_date_close_approach
+    )
+  })
   let cards = []
   if (NEOs !== null) {
     cards = objects.map(object => {
