@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import fetchNEOs from './APICalls';
-import { Routes, Route } from 'react-router'
-import NEOsArea from './Components/NEOsArea/NEOsArea';
+import { Routes, Route } from 'react-router-dom'
+import Welcome from './Components/Welcome/Welcome';
+import Main from './Main/Main';
 
 
 const App = () => {
@@ -46,12 +47,8 @@ const App = () => {
   return (
     <div className='App'>
       <Routes>
-        <header>
-          <h1>TITLE!!!</h1>
-        </header>
-        <main>
-          {NEOs && <NEOsArea NEOs={NEOs} errorMessage={errorMessage} />}
-        </main>
+        <Route exact path='/' element={ <Welcome/> } />
+        <Route exact path='/main' element={<Main NEOs={NEOs} errorMessage={errorMessage} />} />
       </Routes>
     </div>
   )
