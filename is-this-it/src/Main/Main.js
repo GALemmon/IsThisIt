@@ -1,10 +1,9 @@
-import React from "react"
+import React from 'react'
 import './Main.css'
-import Form from "../Components/Form/Form"
-import NEOsArea from "../Components/NEOsArea/NEOsArea"
+import Form from '../Components/Form/Form'
+import NEOsArea from '../Components/NEOsArea/NEOsArea'
 
 const Main = ({ NEOs, errorMessage }) => {
-
   return (
     <>
       <header>
@@ -19,8 +18,3 @@ const Main = ({ NEOs, errorMessage }) => {
 }
 
 export default Main
-
-
-
-
-
