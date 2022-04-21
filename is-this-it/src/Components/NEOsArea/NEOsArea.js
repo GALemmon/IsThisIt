@@ -12,7 +12,7 @@ const NEOsArea = ({ NEOs }) => {
   })
   let cards = []
   if (NEOs !== null) {
-    cards = objects.map(object => {
+    cards = sortedObjects.map(object => {
       return (
         <Card key={object.id} object={object} />
       )
