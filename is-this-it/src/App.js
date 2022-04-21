@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from 'react'
 import fetchNEOs from './APICalls';
-import { Route } from 'react-router'
-// import Form from './Components/Form/Form';
+import { Routes, Route } from 'react-router'
 import NEOsArea from './Components/NEOsArea/NEOsArea';
 
 
@@ -10,12 +9,10 @@ const App = () => {
   const[NEOs, setNEOs] = useState(null)
   const[startDate, setStartDate] = useState('')
   const[endDate, setEndDate] = useState('')
-  // const[userSubmit, setUserSubmit] = useState(false)
   const[errorMessage, setErrorMessage] = useState('')
 
   
   useEffect(() => {determineDates()}, [])
-  useEffect(() => {logShit()}, [startDate, endDate])
   useEffect(() => {
     fetchUserNEOsByDate()
   }, [startDate, endDate])
@@ -28,9 +25,6 @@ const App = () => {
     setEndDate(week)
   }
 
-  const logShit = () => {
-    console.log(startDate, endDate)
-  }
 
   const fetchUserNEOsByDate = () => {
     fetchNEOs(startDate, endDate).then((res) => {
@@ -51,12 +45,14 @@ const App = () => {
 
   return (
     <div className='App'>
-      <header>
-        <h1>TITLE!!!</h1>
-      </header>
-      <main>
-        {NEOs && <NEOsArea NEOs={NEOs} />}
-      </main>
+      <Routes>
+        <header>
+          <h1>TITLE!!!</h1>
+        </header>
+        <main>
+          {NEOs && <NEOsArea NEOs={NEOs} errorMessage={errorMessage} />}
+        </main>
+      </Routes>
     </div>
   )
 }
