@@ -1,40 +1,28 @@
 import React, { useEffect, useState } from 'react'
 import './Form.css'
 
-const Form = ({ setStartDate, setEndDate, setUserSubmit }) => {
-  const[inputStartDate, setInputStartDate] = useState('')
-  const[inputEndDate, setInputEndDate] = useState('')
-
-  // useEffect(() => {findWeek()}, [inputStartDate !== ''])
-
-  const handleStartDateChange = (event) => {
-    setInputStartDate(event.target.value)
+const Form = ({ setSortCriteria, sortCriteria }) => {
+  const handleSortChange = (event) => {
+    setSortCriteria(event.target.value)
   }
-
-  const handleEndDateChange = (event) => {
-    setInputEndDate(event.target.value)
-  }
-
-  const submitDates = (inputStartDate, inputEndDate) => {
-    setStartDate(inputStartDate)
-    setEndDate(inputEndDate)
-    setUserSubmit(true)
-  }
-
-  // const findWeek = () => {
-  //   let weekDate = inputStartDate
-  //   weekDate.setDate(weekDate.getDate() + 7)
-  //   console.log(weekDate)
-  // }
 
   return (
-    <div>
-      <h2>form</h2>
-      <input className='start-date' type='date'  onChange={e => handleStartDateChange(e)} />
-      <input className='end-date' type='date' onChange={e => handleEndDateChange(e)} />
-      <button onClick={() => submitDates(inputStartDate, inputEndDate)} > Select Dates </button>
-    </div>
-
+    <form className='sort-menu'>
+      <div className='sort-dropdown'>
+        <label htmlFor='sort'>Sort by: </label>
+        <select
+          name='sort'
+          onChange={(e) => handleSortChange(e)}
+          value={sortCriteria}
+        >
+          <option value='date'>Date (default)</option>
+          <option value='dangerous'>Potentially dangerous objects</option>
+          <option value='size-b-to-l'>Size (Largest to Smallest)</option>
+          <option value='size-l-to-b'>Size (Smallest to Largest)</option>
+          <option value='closest'>Nearest Miss</option>
+        </select>
+      </div>
+    </form>
   )
 }
 
