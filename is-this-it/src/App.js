@@ -6,18 +6,10 @@ import Main from './Main/Main'
 
 const App = () => {
   const [NEOs, setNEOs] = useState(null)
-  const [startDate, setStartDate] = useState('')
-  const [endDate, setEndDate] = useState('')
   const [errorMessage, setErrorMessage] = useState('')
+  const [sortCriteria, setSortCriteria] = useState('date')
 
   useEffect(() => {
-    determineDates()
-  }, [])
-  useEffect(() => {
-    fetchUserNEOsByDate()
-  }, [startDate, endDate])
-
-  const determineDates = () => {
     const current = new Date()
     const today = `${current.getFullYear()}-${
       current.getMonth() + 1
@@ -25,11 +17,10 @@ const App = () => {
     const week = `${current.getFullYear()}-${current.getMonth() + 1}-${
       current.getDate() + 6
     }`
-    setStartDate(today)
-    setEndDate(week)
-  }
+    fetchNEOsByDate(today, week)
+  }, [])
 
-  const fetchUserNEOsByDate = () => {
+  const fetchNEOsByDate = (startDate, endDate) => {
     fetchNEOs(startDate, endDate)
       .then((res) => {
         if (!res.ok) {
@@ -41,11 +32,12 @@ const App = () => {
         }
       })
       .then((NEOData) => {
-        console.log(NEOData)
-        console.log('NEOData: ', NEOData.near_earth_objects)
-        setNEOs(NEOData.near_earth_objects)
+        const flat = Object.values(NEOData.near_earth_objects).flat()
+        setNEOs(flat)
       })
   }
+
+  console.log('app render')
 
   return (
     <div className='App'>
@@ -54,7 +46,14 @@ const App = () => {
         <Route
           exact
           path='/main'
-          element={<Main NEOs={NEOs} errorMessage={errorMessage} />}
+          element={
+            <Main
+              NEOs={NEOs}
+              errorMessage={errorMessage}
+              setSortCriteria={setSortCriteria}
+              sortCriteria={sortCriteria}
+            />
+          }
         />
       </Routes>
     </div>
