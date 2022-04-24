@@ -5,7 +5,7 @@ import './Welcome.css'
 const Welcome = () => {
   return (
     <div className='welcome-page'>
-      <header>
+      <header className='welcome-header'>
         <h1>Is This It?</h1>
       </header>
       <section className='welcome-message'>
