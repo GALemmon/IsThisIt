@@ -17,32 +17,6 @@ export const sortByDangerous = (objects) => {
   return sortedObjectsDanger
 }
 
-export const sortBySizeBiggest = (objects) => {
-  let objWithSize = objects.map((object) => {
-    return (object.size =
-      (+object.estimated_diameter.feet.etimated_diameter_min +
-        +object.estimated_diameter.feet.etimated_diameter_max) /
-      2)
-  })
-  let sortedObjectsBig = objWithSize.sort((a, b) => {
-    return a.size - b.size
-  })
-  return sortedObjectsBig
-}
-
-export const sortBySizeSmallest = (objects) => {
-  let objWithSize = objects.map((object) => {
-    return (object.size =
-      (+object.estimated_diameter.feet.etimated_diameter_min +
-        +object.estimated_diameter.feet.etimated_diameter_max) /
-      2)
-  })
-  let sortedObjectsSmall = objWithSize.sort((a, b) => {
-    return b.size - a.size
-  })
-  return sortedObjectsSmall
-}
-
 export const sortByClosest = (objects) => {
   let sortedObjectsClose = objects.sort((a, b) => {
     return (
