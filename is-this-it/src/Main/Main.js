@@ -13,7 +13,7 @@ const Main = ({
   return (
     <>
       <header>
-        <h1>TITLE!!!</h1>
+        <h1>Is This It?</h1>
         <Form setSortCriteria={setSortCriteria} sortCriteria={sortCriteria} />
       </header>
       <main>
