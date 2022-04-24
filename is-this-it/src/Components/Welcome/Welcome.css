@@ -4,8 +4,11 @@
   align-items: center;
 }
 
+.welcome-header {
+  margin-left: 2em;
+}
+
 p {
   text-align: center;
   max-width: 40rem;
-
 }
