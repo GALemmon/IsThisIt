@@ -46,8 +46,8 @@ export const sortBySizeSmallest = (objects) => {
 export const sortByClosest = (objects) => {
   let sortedObjectsClose = objects.sort((a, b) => {
     return (
-      +a.close_approach_data.miss_distance.miles -
-      +b.close_approach_data.miss_distance.miles
+      +a.close_approach_data[0].miss_distance.miles -
+      +b.close_approach_data[0].miss_distance.miles
     )
   })
   return sortedObjectsClose
