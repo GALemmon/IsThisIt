@@ -21,3 +21,9 @@
     grid-template-columns: 1fr;
   }
 }
+
+@media (max-width: 525px) {
+  .main-header {
+    flex-direction: column;
+  }
+}
