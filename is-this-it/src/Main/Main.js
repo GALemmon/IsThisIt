@@ -17,6 +17,9 @@ const Main = ({
         <Form setSortCriteria={setSortCriteria} sortCriteria={sortCriteria} />
       </header>
       <main>
+        {!errorMessage && !NEOs && (
+          <div className='loading-mesage'>Loading! Please stand by!</div>
+        )}
         {!!NEOs && (
           <NEOsArea
             NEOs={NEOs}
