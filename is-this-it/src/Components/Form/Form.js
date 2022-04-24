@@ -17,8 +17,6 @@ const Form = ({ setSortCriteria, sortCriteria }) => {
         >
           <option value='date'>Date (default)</option>
           <option value='dangerous'>Potentially dangerous objects</option>
-          <option value='size-b-to-l'>Size (Largest to Smallest)</option>
-          <option value='size-l-to-b'>Size (Smallest to Largest)</option>
           <option value='closest'>Nearest Miss</option>
         </select>
       </div>
