@@ -12,7 +12,7 @@ const Main = ({
 
   return (
     <>
-      <header>
+      <header className='main-header'>
         <h1>Is This It?</h1>
         <Form setSortCriteria={setSortCriteria} sortCriteria={sortCriteria} />
       </header>
