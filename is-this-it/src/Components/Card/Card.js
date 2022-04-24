@@ -12,16 +12,21 @@ const Card = ({ object }) => {
     const formattedDate = `${month}-${day}-${year}`
     return formattedDate
   }
-  
+
   return (
-    <div className={`card ${object.is_potentially_hazardous_asteroid ? 'dangerous' : ''} `}>
+    <div
+      className={`card ${
+        object.is_potentially_hazardous_asteroid ? 'dangerous' : ''
+      } `}
+    >
       <h2>{object.name}</h2>
       <h3>
         This object's closest approach to Earth will occur on: <br />
         {formatDate(object.close_approach_data[0].close_approach_date)}.
       </h3>
       <h4>
-        Is this a potentially hazardous object? <br /><br/>
+        Is this a potentially hazardous object? <br />
+        <br />
         {object.is_potentially_hazardous_asteroid && 'Yes.'}
         {!object.is_potentially_hazardous_asteroid && 'No.'}
       </h4>

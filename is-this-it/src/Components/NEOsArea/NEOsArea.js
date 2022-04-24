@@ -1,28 +1,50 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
 import './NEOsArea.css'
 import Card from '../Card/Card.js'
+import { sortByDate, sortByDangerous, sortByClosest } from '../../utils'
 
-const NEOsArea = ({ NEOs }) => {
-  let objects = Object.values(NEOs).flat()
-  let sortedObjects = objects.sort(function (a, b){
-    return (
-      a.close_approach_data[0].epoch_date_close_approach -
-      b.close_approach_data[0].epoch_date_close_approach
-    )
-  })
-  let cards = []
-  if (NEOs !== null) {
-    cards = objects.map(object => {
-      return (
-        <Card key={object.id} object={object} />
-      )
+const NEOsArea = ({ NEOs, errorMessage, sortCriteria }) => {
+  const [objects, setObjects] = useState(NEOs)
+  const [sortedObjects, setSortedObjects] = useState([])
+  const [cards, setCards] = useState([])
+
+  useEffect(() => {
+    sortObjects(objects, sortCriteria)
+  }, [])
+
+  useEffect(() => {
+    sortObjects(objects, sortCriteria)
+  }, [sortCriteria])
+
+  useEffect(() => {
+    makeCards(sortedObjects)
+  }, [sortCriteria, sortedObjects])
+
+  const makeCards = (sortedObjects) => {
+    let newCards = sortedObjects.map((object) => {
+      return <Card key={object.id} object={object} />
     })
+    setCards(newCards)
+  }
+
+  const sortObjects = (objects, sortCriteria) => {
+    if (sortCriteria === 'date') {
+      let newSort = sortByDate(objects)
+      setSortedObjects(newSort)
+    } else if (sortCriteria === 'dangerous') {
+      let newSort = sortByDangerous(objects)
+      setSortedObjects(newSort)
+    } else if (sortCriteria === 'closest') {
+      let newSort = sortByClosest(objects)
+      setSortedObjects(newSort)
+    }
   }
 
   return (
-    <div className='object-area'>
-      {cards}
-    </div>
+    <>
+      {errorMessage && <section>errorMessage</section>}
+      {!errorMessage && <div className='object-area'>{cards}</div>}
+    </>
   )
 }
 
