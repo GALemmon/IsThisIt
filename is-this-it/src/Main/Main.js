@@ -3,13 +3,7 @@ import './Main.css'
 import Form from '../Components/Form/Form'
 import NEOsArea from '../Components/NEOsArea/NEOsArea'
 
-const Main = ({
-  NEOs,
-  errorMessage,
-  setSortCriteria,
-  sortCriteria
-}) => {
-
+const Main = ({ NEOs, errorMessage, setSortCriteria, sortCriteria }) => {
   return (
     <>
       <header className='main-header'>
@@ -18,7 +12,9 @@ const Main = ({
       </header>
       <main>
         {!errorMessage && !NEOs && (
-          <div className='loading-mesage'>Loading! Please stand by!</div>
+          <div className='loading-mesage'>
+            <h1>Loading! Please stand by!</h1>
+          </div>
         )}
         {!!NEOs && (
           <NEOsArea
