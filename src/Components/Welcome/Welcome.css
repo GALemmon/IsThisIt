@@ -14,3 +14,8 @@ p {
   text-align: center;
   max-width: 40rem;
 }
+
+h1 {
+  margin: 0;
+  padding: 20px;
+}
