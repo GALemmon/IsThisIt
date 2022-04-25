@@ -13,11 +13,15 @@ const App = () => {
 
   useEffect(() => {
     const current = new Date()
-    const today = `${current.getFullYear()}-${
-      current.getMonth() + 1
-    }-${current.getDate()}`
-    const week = `${current.getFullYear()}-${current.getMonth() + 1}-${
-      current.getDate() + 6
+    const todayDate = new Date()
+    const weekDate = current.getDate() + 6
+    current.setDate(weekDate)
+    const weekDate1 = current.toLocaleString()
+    const today = `${todayDate.getFullYear()}-${
+      todayDate.getMonth() + 1
+    }-${todayDate.getDate()}`
+    const week = `${weekDate1.slice(4, 8)}-${weekDate1.slice(0, 1)}-${
+      weekDate1.slice(2, 3)
     }`
     fetchNEOsByDate(today, week)
   }, [])
