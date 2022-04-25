@@ -8,8 +8,13 @@
   border: 1px solid black;
   border-radius: 10px;
   width: 17rem;
+  background: white;
 }
 
 .dangerous {
-  box-shadow: 0 0 1vh red;
+  box-shadow: 0 0 5vh red;
+}
+
+.card-text {
+  color: black;
 }
