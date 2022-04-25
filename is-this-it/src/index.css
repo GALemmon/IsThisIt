@@ -5,9 +5,20 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-image: 'https://thumbs.gfycat.com/AdmiredDigitalHarrier-mobile.mp4';
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+video {
+  position: fixed;
+  z-index: -1;
+  /* width: 100%; */
+  height: 150vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  opacity: 90%;
 }
