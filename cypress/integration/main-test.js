@@ -2,16 +2,9 @@ import APIKey from '../../src/APIKey'
 
 describe('Main page Tests', () => {
   beforeEach(() => {
-    const current = new Date()
-    const today = `${current.getFullYear()}-${
-      current.getMonth() + 1
-    }-${current.getDate()}`
-    const week = `${current.getFullYear()}-${current.getMonth() + 1}-${
-      current.getDate() + 6
-    }`
     cy.intercept(
       'GET',
-      `https://api.nasa.gov/neo/rest/v1/feed?start_date=${today}&end_date=${week}&api_key=${APIKey}`,
+      `https://api.nasa.gov/neo/rest/v1/feed?start_date=2022-4-25&end_date=2022-5-1&api_key=${APIKey}`,
       {
         response: 200,
         fixture: 'NEOs.json'
