@@ -19,7 +19,7 @@ Insert deploy link
 - [Project Goals](#Goals)
 
 ## Overview
-Is today the day?  Is this it?  Will we be going the way of the dinosaurs?  NASA may have the answers.  This app utilizes NASA's Near Earth Object (NEO) API to to take a look at the next week of near misses.  Feel free to sort the data by date, wether the object is potentially dangerous, or by how close it will come.
+Is today the day?   Is this it?   Will we be going the way of the dinosaurs?   NASA may have the answers.  This app utilizes NASA's Near Earth Object (NEO) API to to take a look at the next week of near misses.  Feel free to sort the data by date, wether the object is potentially dangerous, or by how close it will come.
 
 To be clear, this app is for entertainment purposes only.  While it does use scientific data, absolutely no attempt at analysis has been made.
 
