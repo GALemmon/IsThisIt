@@ -3,20 +3,19 @@ import './Main.css'
 import Form from '../Components/Form/Form'
 import NEOsArea from '../Components/NEOsArea/NEOsArea'
 
-const Main = ({
-  NEOs,
-  errorMessage,
-  setSortCriteria,
-  sortCriteria
-}) => {
-
+const Main = ({ NEOs, errorMessage, setSortCriteria, sortCriteria }) => {
   return (
     <>
-      <header>
-        <h1>TITLE!!!</h1>
+      <header className='main-header'>
+        <h1>Is This It?</h1>
         <Form setSortCriteria={setSortCriteria} sortCriteria={sortCriteria} />
       </header>
       <main>
+        {!errorMessage && !NEOs && (
+          <div className='loading-mesage'>
+            <h1>Loading! Please stand by!</h1>
+          </div>
+        )}
         {!!NEOs && (
           <NEOsArea
             NEOs={NEOs}

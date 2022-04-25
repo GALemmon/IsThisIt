@@ -30,7 +30,7 @@ const Card = ({ object }) => {
         {object.is_potentially_hazardous_asteroid && 'Yes.'}
         {!object.is_potentially_hazardous_asteroid && 'No.'}
       </h4>
-      <p>
+      <p className='card-text'>
         This object is between{' '}
         {object.estimated_diameter.feet.estimated_diameter_min.toFixed(2)} and{' '}
         {object.estimated_diameter.feet.estimated_diameter_max.toFixed(2)} feet

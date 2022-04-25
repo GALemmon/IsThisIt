@@ -1,0 +1,29 @@
+@media (max-width: 1620px) {
+  .object-area {
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 1300px) {
+  .object-area {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+@media (max-width: 980px) {
+  .object-area {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media (max-width: 660px) {
+  .object-area {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 525px) {
+  .main-header {
+    flex-direction: column;
+  }
+}

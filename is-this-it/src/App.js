@@ -3,6 +3,7 @@ import fetchNEOs from './APICalls'
 import { Routes, Route } from 'react-router-dom'
 import Welcome from './Components/Welcome/Welcome'
 import Main from './Main/Main'
+import './mediaQueries.css'
 
 const App = () => {
   const [NEOs, setNEOs] = useState(null)
