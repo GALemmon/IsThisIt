@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react'
 import fetchNEOs from './APICalls'
 import { Routes, Route } from 'react-router-dom'
 import Welcome from './Components/Welcome/Welcome'
-import Main from './Main/Main'
+import Main from './Components/Main/Main'
+import NotFound from './Components/NotFound/NotFound'
 import './mediaQueries.css'
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
             />
           }
         />
+        <Route path='*' element={<NotFound />} />
       </Routes>
     </div>
   )
