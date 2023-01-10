@@ -17,11 +17,11 @@ const App = () => {
     const weekDate = current.getDate() + 6
     current.setDate(weekDate)
     const weekDate1 = current.toLocaleString()
-    const today = `${todayDate.getFullYear()}-${
+    const today = `${todayDate.getFullYear()}-0${
       todayDate.getMonth() + 1
-    }-${todayDate.getDate()}`
-    const week = `${weekDate1.slice(4, 8)}-${weekDate1.slice(0, 1)}-${
-      weekDate1.slice(2, 3)
+    }-0${todayDate.getDate()}`
+    const week = `${weekDate1.slice(5, 9)}-0${weekDate1.slice(0, 1)}-${
+      weekDate1.slice(2, 4)
     }`
     fetchNEOsByDate(today, week)
   }, [])
